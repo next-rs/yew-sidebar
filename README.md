@@ -53,37 +53,110 @@ Incorporating Yew Sidebar into your application is easy. Follow these steps:
    pub fn app() -> Html {
        // Tailwind css utility classes
        let sidebar_props = SidebarProps {
+           fixed: false,
+           logo_src: "",
            sider_collapsed: false,
-           width_collapsed: "w-16",
-           title: "Multi Level Menu",
-           width_expanded: "w-64",
-           padding_collapsed: "p-2",
-           justify_content: "flex-col",
-           padding_expanded: "p-4",
-           font_size: "text-lg",
+           title: "Main Menu",
            menu_items: vec![
                MenuItem {
                    icon: html! {
-                       <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           fill="none"
-                           viewBox="0 0 24 24"
-                           stroke="currentColor"
-                           class="w-6 h-6"
-                       >
-                           <path
-                               stroke-linecap="round"
-                               stroke-linejoin="round"
-                               stroke-width="2"
-                               d="M6 4v16m6-16v16m6-16v16"
-                           />
+                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                        </svg>
                    },
                    text: "Home",
                    link: "#home",
                    submenus: vec![],
                },
+               MenuItem {
+                   icon: html! {
+                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                       </svg>
+                   },
+                   text: "About",
+                   link: "#about",
+                   submenus: vec![
+                       MenuItem {
+                           icon: html! {
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                               </svg>
+                           },
+                           text: "Team",
+                           link: "#team",
+                           submenus: vec![],
+                       },
+                       MenuItem {
+                           icon: html! {
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10V3L6 14h7v7l9-11h-7z"></path>
+                               </svg>
+                           },
+                           text: "History",
+                           link: "#history",
+                           submenus: vec![],
+                       },
+                   ],
+               },
+               MenuItem {
+                   icon: html! {
+                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10V3L6 14h7v7l9-11h-7z"></path>
+                       </svg>
+                   },
+                   text: "Services",
+                   link: "#services",
+                   submenus: vec![
+                       MenuItem {
+                           icon: html! {
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 4v16m6-16v16m6-16v16"></path>
+                               </svg>
+                           },
+                           text: "Web Design",
+                           link: "#web-design",
+                           submenus: vec![],
+                       },
+                       MenuItem {
+                           icon: html! {
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                               </svg>
+                           },
+                           text: "Graphic Design",
+                           link: "#graphic-design",
+                           submenus: vec![],
+                       },
+                   ],
+               },
+               MenuItem {
+                   icon: html! {
+                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                       </svg>
+                   },
+                   text: "Contact",
+                   link: "#contact",
+                   submenus: vec![],
+               },
            ],
+           width_collapsed: "w-16",
+           width_expanded: "w-64",
+           padding_collapsed: "p-2",
+           padding_expanded: "p-4",
+           display_collapsed: "hidden",
+           display_expanded: "flex",
+           justify_content: "flex-col",
+           align_items: "items-start",
+           height: "h-screen",
+           background_color: "bg-gradient-to-r from-yellow-800 to-orange-700",
+           font: "text-gray-800 text-2xl",
+           icon_color: "yellow",
+           button_border_radius: "rounded",
+           button_background_color: "bg-blue-500",
+           button_width: "w-full",
+           button_height: "h-12",
            ..SidebarProps::default()
        };
 
@@ -122,16 +195,32 @@ Incorporating Yew Sidebar into your application is easy. Follow these steps:
 | `height`               | `&'static str`  | `"h-screen"`        | Height of the sidebar.                            |
 | `background_color`     | `&'static str`  | `"bg-gray-800"`     | Background color of the sidebar.                   |
 
-### Styling Props
+### Style Props
 
 | Name                   | Type            | Default Value       | Description                                       |
 | ---------------------- | --------------- | ------------------- | ------------------------------------------------- |
-| `font_size`            | `&'static str`  | `"text-white"`      | Font size of the sidebar text.                    |
+| `font`                 | `&'static str`  | `"text-white"`      | Font color of the sidebar text.                   |
 | `icon_color`           | `&'static str`  | `"text-white"`      | Color of the icons in the sidebar.                |
 | `button_border_radius` | `&'static str`  | `"rounded"`         | Border radius of the sidebar button.             |
 | `button_background_color` | `&'static str` | `"bg-blue-600"`     | Background color of the sidebar button.          |
 | `button_width`         | `&'static str`  | `"w-12"`            | Width of the sidebar button.                      |
 | `button_height`        | `&'static str`  | `"h-12"`            | Height of the sidebar button.                     |
+
+### Title Props
+
+| Name                   | Type            | Default Value       | Description                                       |
+| ---------------------- | --------------- | ------------------- | ------------------------------------------------- |
+| `title`                | `&'static str`  | `""`                | Title of the sidebar.                             |
+
+### Logo Props
+
+| Name                   | Type            | Default Value       | Description                                       |
+| ---------------------- | --------------- | ------------------- | ------------------------------------------------- |
+| `logo_src`             | `&'static str`  | `"images/logo.png"` | Source URL for the logo image.                    |
+| `logo_alt`             | `&'static str`  | `"logo"`            | Alternative text for the logo.                    |
+| `logo_img_class`       | `&'static str`  | `LOGO_CLASS`        | Class for styling the logo image.                 |
+| `logo_link`            | `&'static str`  | `"/"`               | Link for the logo.                                |
+| `logo_class`           | `&'static str`  | `LOGO_CLASS`        | Class for styling the logo.                       |
 
 ## 📙 Examples
 
