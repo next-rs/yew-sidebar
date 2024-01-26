@@ -7,7 +7,7 @@
 
 ---
 
-![Demo](https://github.com/wiseaidev/yew-sidebar/assets/62179149/3e322002-844f-4abd-b4da-ba985ab127cb)
+![Demo](https://github.com/wiseaidev/yew-sidebar/assets/62179149/87e5fb97-195e-4aa4-a54c-646a0c45ba72)
 
 ---
 
