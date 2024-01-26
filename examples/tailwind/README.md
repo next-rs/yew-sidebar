@@ -21,7 +21,7 @@
 	```
 1. Uncomment this line:
 
-	TODO
+	https://github.com/wiseaidev/yew-sidebar/blob/a9ed417300116b705a69ca368222692538a93baa/examples/tailwind/index.html#L5
 
 1. Stop and rerun the client:
 
