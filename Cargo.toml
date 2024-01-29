@@ -1,6 +1,6 @@
 [package]
 name = "yew-sidebar"
-version = "0.1.1"
+version = "0.1.2"
 description = "📁 An ultra-flexible and lightning-fast sidebar component for the Yew framework."
 license = "MIT"
 repository = "https://github.com/wiseaidev/yew-sidebar"
