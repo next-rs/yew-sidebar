@@ -39,6 +39,12 @@ pub struct SidebarProps {
     pub sider_collapsed: bool,
     #[prop_or_default]
     pub menu_items: Vec<MenuItem>,
+    // Prop for toggle icon when collapsed
+    #[prop_or_default]
+    pub toggle_icon_collapsed: Html,
+    // Prop for toggle icon when expanded
+    #[prop_or_default]
+    pub toggle_icon_expanded: Html,
 
     // Layout Props
     // Prop for width of collapsed state
@@ -108,6 +114,10 @@ pub struct SidebarProps {
     pub logo_link: &'static str,
     #[prop_or(LOGO_CLASS)]
     pub logo_class: &'static str,
+
+    // Bottom section props
+    #[prop_or_default]
+    pub bottom_section: Html,
 }
 
 impl Default for SidebarProps {
@@ -138,6 +148,9 @@ impl Default for SidebarProps {
             logo_img_class: LOGO_CLASS,
             logo_link: "/",
             logo_class: LOGO_CLASS,
+            toggle_icon_collapsed: html! {},
+            toggle_icon_expanded: html! {},
+            bottom_section: html! {},
         }
     }
 }
@@ -176,6 +189,7 @@ pub fn sidebar(props: &SidebarProps) -> Html {
             >
                 { render_logo_and_title(&props, is_collapsed_handle) }
                 { render_menu(&props.menu_items, is_collapsed) }
+                { props.bottom_section.clone() }
             </div>
         </>
     }
@@ -188,7 +202,7 @@ fn render_logo_and_title(props: &SidebarProps, is_collapsed_handle: UseStateHand
             is_collapsed_handle.set(!*is_collapsed_handle);
         })
     };
-
+    let props_clone = props.clone();
     html! {
         <div class="flex items-center">
             <button
@@ -201,8 +215,14 @@ fn render_logo_and_title(props: &SidebarProps, is_collapsed_handle: UseStateHand
                     props.button_height,
                 )}
                 onclick={on_toggle}
-            >{ toggle_icon(*is_collapsed_handle, props.icon_color) }</button>
-            if !*is_collapsed_handle && !props.logo_src.is_empty() { {render_logo(props)} }
+            >
+                { if *is_collapsed_handle {
+                    props_clone.toggle_icon_collapsed
+                } else {
+                    props_clone.toggle_icon_expanded
+                } }
+            </button>
+            if !*is_collapsed_handle && !props.logo_src.is_empty() { { render_logo(&props) } }
             if !*is_collapsed_handle { <span class="ml-2 text-white">{ props.title }</span> }
         </div>
     }
@@ -218,48 +238,6 @@ fn render_logo(props: &SidebarProps) -> Html {
     }
 }
 
-fn toggle_icon(is_collapsed: bool, icon_color: &'static str) -> Html {
-    let icon_class = "m-3 w-6 h-6";
-
-    if is_collapsed {
-        // Vertical lines for collapsed state
-        html! {
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke={icon_color}
-                class={icon_class}
-            >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M6 4v16m6-16v16m6-16v16"
-                />
-            </svg>
-        }
-    } else {
-        // Horizontal lines for expanded state
-        html! {
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke={icon_color}
-                class={icon_class}
-            >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16m-7 6h7"
-                />
-            </svg>
-        }
-    }
-}
-
 fn render_menu(menu_items: &[MenuItem], is_collapsed: bool) -> Html {
     html! { <ul>{ for menu_items.iter().map(|item| render_menu_item(item, is_collapsed)) }</ul> }
 }
@@ -267,10 +245,7 @@ fn render_menu(menu_items: &[MenuItem], is_collapsed: bool) -> Html {
 fn render_menu_item(item: &MenuItem, is_collapsed: bool) -> Html {
     html! {
         <li class="mb-1">
-            <a
-                href={item.link}
-                class={MENU_ITEM}
-            >
+            <a href={item.link} class={MENU_ITEM}>
                 { item.icon.clone() }
                 if !is_collapsed { <span class="ml-2">{ &item.text }</span> }
                 { if !item.submenus.is_empty() && !is_collapsed {
