@@ -1,4 +1,5 @@
 use yew::prelude::*;
+use yew_accordion::{Accordion, AccordionButton};
 
 const WIDTH_COLLAPSED: &'static str = "w-16";
 const WIDTH_EXPANDED: &'static str = "w-64";
@@ -118,6 +119,26 @@ pub struct SidebarProps {
     // Bottom section props
     #[prop_or_default]
     pub bottom_section: Html,
+
+    /// Properties for the Accordion components, aka submenus.
+    #[prop_or_default]
+    /// Size of the accordion. Possible values: "sm", "md", "lg".
+    pub size: &'static str,
+    #[prop_or_default]
+    /// ARIA controls attribute for accessibility.
+    pub aria_controls: &'static str,
+    #[prop_or_default]
+    /// Class for the container element.
+    pub container_class: &'static str,
+    #[prop_or_default]
+    /// Class for the expanded element.
+    pub expanded_element_class: &'static str,
+    #[prop_or_default]
+    /// Class for the collapsed element.
+    pub collapsed_element_class: &'static str,
+    #[prop_or_default]
+    /// Class for the content container.
+    pub content_container_class: &'static str,
 }
 
 impl Default for SidebarProps {
@@ -151,6 +172,12 @@ impl Default for SidebarProps {
             toggle_icon_collapsed: html! {},
             toggle_icon_expanded: html! {},
             bottom_section: html! {},
+            size: "md",
+            aria_controls: "accordion",
+            container_class: "text-white",
+            expanded_element_class: "text-white",
+            collapsed_element_class: "text-white",
+            content_container_class: "text-white",
         }
     }
 }
@@ -188,7 +215,7 @@ pub fn sidebar(props: &SidebarProps) -> Html {
                 )}
             >
                 { render_logo_and_title(&props, is_collapsed_handle) }
-                { render_menu(&props.menu_items, is_collapsed) }
+                { render_menu(&props, is_collapsed) }
                 { props.bottom_section.clone() }
             </div>
         </>
@@ -238,28 +265,53 @@ fn render_logo(props: &SidebarProps) -> Html {
     }
 }
 
-fn render_menu(menu_items: &[MenuItem], is_collapsed: bool) -> Html {
-    html! { <ul>{ for menu_items.iter().map(|item| render_menu_item(item, is_collapsed)) }</ul> }
-}
-
-fn render_menu_item(item: &MenuItem, is_collapsed: bool) -> Html {
+fn render_menu(props: &SidebarProps, is_collapsed: bool) -> Html {
     html! {
-        <li class="mb-1">
-            <a href={item.link} class={MENU_ITEM}>
-                { item.icon.clone() }
-                if !is_collapsed { <span class="ml-2">{ &item.text }</span> }
-                { if !item.submenus.is_empty() && !is_collapsed {
-                    html! { <ul class={"ml-1"}>{render_submenu(&item.submenus)}</ul> }
-                } else {
-                    html! {}
-                } }
-            </a>
-        </li>
+        <ul>
+            { for props.menu_items.iter().map(|item| render_menu_item(&props, item, is_collapsed)) }
+        </ul>
     }
 }
 
-fn render_submenu(submenus: &[MenuItem]) -> Html {
-    html! { { for submenus.iter().map(|submenu| render_menu_item(submenu, false)) } }
+fn render_menu_item(props: &SidebarProps, item: &MenuItem, is_collapsed: bool) -> Html {
+    let submenu_html = if !item.submenus.is_empty() {
+        html! {
+            <Accordion
+                expanded_element={html! {
+                    <AccordionButton class={"text-white"}>
+                        <div class="flex">
+                            { item.icon.clone() }
+                            if !is_collapsed { <span class="ml-2">{ &item.text }</span> }
+                        </div>
+                    </AccordionButton>
+                }}
+                collapsed_element={html! {
+                    <AccordionButton class={"text-white"}>
+                        <div class="flex">
+                            { item.icon.clone() }
+                            if !is_collapsed { <span class="ml-2">{ &item.text }</span> }
+                        </div>
+                    </AccordionButton>
+                }}
+                size={props.size}
+                aria_controls={props.aria_controls}
+                container_class={props.container_class}
+                expanded_element_class={props.expanded_element_class}
+                collapsed_element_class={props.collapsed_element_class}
+                content_container_class={props.content_container_class}
+            >
+                <ul>
+                    { for item.submenus.iter().map(|submenu| render_menu_item(&props, submenu, is_collapsed)) }
+                </ul>
+            </Accordion>
+        }
+    } else {
+        html! {
+            <>{ item.icon.clone() }if !is_collapsed { <span class="ml-2">{ &item.text }</span> }</>
+        }
+    };
+
+    html! { <li><a href={item.link} class={MENU_ITEM}>{ submenu_html }</a></li> }
 }
 
 #[derive(Clone, Properties, PartialEq)]

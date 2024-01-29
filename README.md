@@ -179,6 +179,8 @@ Incorporating Yew Sidebar into your application is easy. Follow these steps:
 | `fixed`                | `bool`          | `false`             | Set whether the sidebar is fixed.                  |
 | `sider_collapsed`      | `bool`          | `false`             | Initial collapsed state of the sidebar.            |
 | `menu_items`           | `Vec<MenuItem>` | `Vec::new()`        | List of navigation menu items.                     |
+| `toggle_icon_collapsed` | `Html`         | `Html::default()`   | Toggle icon when the sidebar is collapsed.         |
+| `toggle_icon_expanded`  | `Html`         | `Html::default()`   | Toggle icon when the sidebar is expanded.          |
 
 ### Layout Props
 
@@ -218,9 +220,26 @@ Incorporating Yew Sidebar into your application is easy. Follow these steps:
 | ---------------------- | --------------- | ------------------- | ------------------------------------------------- |
 | `logo_src`             | `&'static str`  | `"images/logo.png"` | Source URL for the logo image.                    |
 | `logo_alt`             | `&'static str`  | `"logo"`            | Alternative text for the logo.                    |
-| `logo_img_class`       | `&'static str`  | `LOGO_CLASS`        | Class for styling the logo image.                 |
+| `logo_img_class`       | `&'static str`  | `LOGO_IMG_CLASS`    | Class for styling the logo image.                 |
 | `logo_link`            | `&'static str`  | `"/"`               | Link for the logo.                                |
 | `logo_class`           | `&'static str`  | `LOGO_CLASS`        | Class for styling the logo.                       |
+
+### Bottom Section Props
+
+| Name                   | Type            | Default Value       | Description                                       |
+| ---------------------- | --------------- | ------------------- | ------------------------------------------------- |
+| `bottom_section`       | `Html`          | `Html::default()`   | Content for the bottom section of the sidebar.    |
+
+### Submenus Props
+
+| Name                   | Type            | Default Value       | Description                                       |
+| ---------------------- | --------------- | ------------------- | ------------------------------------------------- |
+| `size`                 | `&'static str`  | `""`                | Size of the accordion. Possible values: "sm", "md", "lg". |
+| `aria_controls`        | `&'static str`  | `""`                | ARIA controls attribute for accessibility.       |
+| `container_class`      | `&'static str`  | `""`                | Class for the container element.                  |
+| `expanded_element_class` | `&'static str` | `""`                | Class for the expanded element.                   |
+| `collapsed_element_class` | `&'static str` | `""`                | Class for the collapsed element.                  |
+| `content_container_class` | `&'static str` | `""`                | Class for the content container.                  |
 
 ## 📙 Examples
 

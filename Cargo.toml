@@ -16,6 +16,7 @@ categories = ["web-programming"]
 
 [dependencies]
 yew = { version = "0.21.0", features = ["csr"] }
+yew-accordion = "0.1.0"
 
 [profile.release]
 codegen-units = 1
