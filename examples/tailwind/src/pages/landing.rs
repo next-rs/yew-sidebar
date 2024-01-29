@@ -3,10 +3,44 @@ use yew_sidebar::{MenuItem, Sidebar, SidebarProps};
 
 #[function_component(LandingPage)]
 pub fn landing_page() -> Html {
+    let toggle_icon_collapsed = html! {
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="white"
+            class="m-3 w-6 h-6"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 4v16m6-16v16m6-16v16"
+            />
+        </svg>
+    };
+    let toggle_icon_expanded = html! {
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="white"
+            class="m-3 w-6 h-6"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+            />
+        </svg>
+    };
     let sidebar_props = SidebarProps {
         logo_src: "images/logo.png",
         sider_collapsed: false,
         width_collapsed: "w-16",
+        toggle_icon_expanded: toggle_icon_expanded.clone(),
+        toggle_icon_collapsed: toggle_icon_collapsed.clone(),
         title: "Multi Level Menu",
         width_expanded: "w-64",
         padding_collapsed: "p-2",
@@ -283,6 +317,8 @@ pub fn landing_page() -> Html {
             },
         ],
         width_collapsed: "w-16",
+        toggle_icon_expanded: toggle_icon_expanded.clone(),
+        toggle_icon_collapsed: toggle_icon_collapsed.clone(),
         width_expanded: "w-64",
         padding_collapsed: "p-2",
         padding_expanded: "p-4",
@@ -337,6 +373,8 @@ pub fn landing_page() -> Html {
             },
         ],
         width_collapsed: "w-20",
+        toggle_icon_expanded: toggle_icon_expanded.clone(),
+        toggle_icon_collapsed: toggle_icon_collapsed.clone(),
         width_expanded: "w-72",
         padding_collapsed: "p-2",
         padding_expanded: "p-4",
@@ -390,6 +428,8 @@ pub fn landing_page() -> Html {
             },
         ],
         width_collapsed: "w-24",
+        toggle_icon_expanded: toggle_icon_expanded.clone(),
+        toggle_icon_collapsed: toggle_icon_collapsed.clone(),
         width_expanded: "w-80",
         padding_collapsed: "p-3",
         padding_expanded: "p-5",
@@ -444,6 +484,8 @@ pub fn landing_page() -> Html {
             },
         ],
         width_collapsed: "w-16",
+        toggle_icon_expanded: toggle_icon_expanded.clone(),
+        toggle_icon_collapsed: toggle_icon_collapsed.clone(),
         width_expanded: "w-56",
         padding_collapsed: "p-1",
         padding_expanded: "p-3",
@@ -499,6 +541,8 @@ pub fn landing_page() -> Html {
         ],
         width_collapsed: "w-20",
         width_expanded: "w-72",
+        toggle_icon_expanded: toggle_icon_expanded.clone(),
+        toggle_icon_collapsed: toggle_icon_collapsed.clone(),
         padding_collapsed: "p-2",
         padding_expanded: "p-4",
         display_collapsed: "hidden",
@@ -552,6 +596,8 @@ pub fn landing_page() -> Html {
             },
         ],
         width_collapsed: "w-16",
+        toggle_icon_expanded: toggle_icon_expanded.clone(),
+        toggle_icon_collapsed: toggle_icon_collapsed.clone(),
         width_expanded: "w-60",
         padding_collapsed: "p-0",
         padding_expanded: "p-3",
@@ -569,7 +615,6 @@ pub fn landing_page() -> Html {
         button_height: "h-12",
         ..SidebarProps::default()
     };
-
     html! {
         <div class="flex">
             <Sidebar ..sidebar_props />
