@@ -201,7 +201,7 @@ Incorporating Yew Sidebar into your application is easy. Follow these steps:
 
 ## 📙 Examples
 
-If you're curious about how to use it with different styling or additional features, you can check out the [examples folder](examples/tailwind) for more information.
+If you're curious about how to use it with different styling or additional features, you can check out the [examples folder](examples) for more information.
 
 ## 🤝 Contribution
 
