@@ -310,15 +310,26 @@ fn render_menu_item(props: &SidebarProps, item: &MenuItem, is_collapsed: bool) -
             <>{ item.icon.clone() }if !is_collapsed { <span class="ml-2">{ &item.text }</span> }</>
         }
     };
-
-    html! { <li><a href={item.link} class={MENU_ITEM}>{ submenu_html }</a></li> }
+    html! {
+        <li class={item.class}>
+            <div>{ item.title }</div>
+            <a href={item.link} class={MENU_ITEM}>{ submenu_html }</a>
+        </li>
+    }
 }
 
 #[derive(Clone, Properties, PartialEq)]
 pub struct MenuItem {
+    #[prop_or_default]
     pub icon: Html,
+    #[prop_or_default]
     pub text: &'static str,
+    #[prop_or_default]
     pub link: &'static str,
+    #[prop_or_default]
+    pub class: &'static str,
+    #[prop_or_default]
+    pub title: &'static str,
     #[prop_or_default]
     pub submenus: Vec<MenuItem>,
 }
