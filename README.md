@@ -7,7 +7,11 @@
 
 ---
 
-![Demo](https://github.com/wiseaidev/yew-sidebar/assets/62179149/87e5fb97-195e-4aa4-a54c-646a0c45ba72)
+| Example | Demo | URL |
+| --- | --- | --- |
+| Basic | ![Demo](https://github.com/next-rs/yew-sidebar/assets/62179149/c25ea59c-530e-416e-94fa-e154fb461fd4) | [![Netlify Status](https://api.netlify.com/api/v1/badges/0f5cbba1-4179-45c7-91e2-5540f3539a12/deploy-status)](https://yew-sidebar.netlify.app/) |
+| X Clone | ![Demo](https://github.com/next-rs/yew-sidebar/assets/62179149/da35077c-0969-46b0-8fa6-b296909875b0) | [![Netlify Status](https://api.netlify.com/api/v1/badges/0f5cbba1-4179-45c7-91e2-5540f3539a12/deploy-status)](https://yew-sidebar-x.netlify.app/) |
+| Youtube Clone | ![Demo](https://github.com/next-rs/yew-sidebar/assets/62179149/6133ada6-5870-42a8-9afd-a41c3f20f07d) | [![Netlify Status](https://api.netlify.com/api/v1/badges/0f5cbba1-4179-45c7-91e2-5540f3539a12/deploy-status)](https://yew-sidebar-youtube.netlify.app/) |
 
 ---
 
@@ -52,113 +56,67 @@ Incorporating Yew Sidebar into your application is easy. Follow these steps:
    #[function_component(App)]
    pub fn app() -> Html {
        // Tailwind css utility classes
-       let sidebar_props = SidebarProps {
-           fixed: false,
-           logo_src: "",
-           sider_collapsed: false,
-           title: "Main Menu",
-           menu_items: vec![
-               MenuItem {
-                   icon: html! {
-                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                       </svg>
-                   },
-                   text: "Home",
-                   link: "#home",
-                   submenus: vec![],
-               },
-               MenuItem {
-                   icon: html! {
-                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                       </svg>
-                   },
-                   text: "About",
-                   link: "#about",
-                   submenus: vec![
-                       MenuItem {
-                           icon: html! {
-                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                               </svg>
-                           },
-                           text: "Team",
-                           link: "#team",
-                           submenus: vec![],
-                       },
-                       MenuItem {
-                           icon: html! {
-                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10V3L6 14h7v7l9-11h-7z"></path>
-                               </svg>
-                           },
-                           text: "History",
-                           link: "#history",
-                           submenus: vec![],
-                       },
-                   ],
-               },
-               MenuItem {
-                   icon: html! {
-                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10V3L6 14h7v7l9-11h-7z"></path>
-                       </svg>
-                   },
-                   text: "Services",
-                   link: "#services",
-                   submenus: vec![
-                       MenuItem {
-                           icon: html! {
-                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 4v16m6-16v16m6-16v16"></path>
-                               </svg>
-                           },
-                           text: "Web Design",
-                           link: "#web-design",
-                           submenus: vec![],
-                       },
-                       MenuItem {
-                           icon: html! {
-                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                               </svg>
-                           },
-                           text: "Graphic Design",
-                           link: "#graphic-design",
-                           submenus: vec![],
-                       },
-                   ],
-               },
-               MenuItem {
-                   icon: html! {
-                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                       </svg>
-                   },
-                   text: "Contact",
-                   link: "#contact",
-                   submenus: vec![],
-               },
-           ],
-           width_collapsed: "w-16",
-           width_expanded: "w-64",
-           padding_collapsed: "p-2",
-           padding_expanded: "p-4",
-           display_collapsed: "hidden",
-           display_expanded: "flex",
-           justify_content: "flex-col",
-           align_items: "items-start",
-           height: "h-screen",
-           background_color: "bg-gradient-to-r from-yellow-800 to-orange-700",
-           font: "text-gray-800 text-2xl",
-           icon_color: "yellow",
-           button_border_radius: "rounded",
-           button_background_color: "bg-blue-500",
-           button_width: "w-full",
-           button_height: "h-12",
-           ..SidebarProps::default()
-       };
+        let sidebar_props = SidebarProps {
+            sider_collapsed: true,
+            title: "Dashboard",
+            menu_items: vec![
+                MenuItem {
+                    icon: html! {
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    },
+                    text: "Overview",
+                    link: "#overview",
+                    class: "",
+                    title: "",
+                    submenus: vec![],
+                },
+                MenuItem {
+                    icon: html! {
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 4v16m6-16v16m6-16v16"></path>
+                        </svg>
+                    },
+                    text: "Analytics",
+                    link: "#analytics",
+                    class: "",
+                    title: "",
+                    submenus: vec![],
+                },
+                MenuItem {
+                    icon: html! {
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10V3L6 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    },
+                    text: "Reports",
+                    link: "#reports",
+                    class: "",
+                    title: "",
+                    submenus: vec![],
+                },
+            ],
+            width_collapsed: "w-20",
+            toggle_icon_expanded: toggle_icon_expanded.clone(),
+            toggle_icon_collapsed: toggle_icon_collapsed.clone(),
+            width_expanded: "w-72",
+            padding_collapsed: "p-2",
+            padding_expanded: "p-4",
+            display_collapsed: "hidden",
+            display_expanded: "flex",
+            justify_content: "flex-col",
+            align_items: "items-start",
+            height: "h-screen",
+            background_color: "bg-gray-800",
+            font: "text-white",
+            icon_color: "yellow",
+            button_border_radius: "rounded-md",
+            button_background_color: "bg-blue-600",
+            button_width: "w-3/4",
+            button_height: "h-10",
+            ..SidebarProps::default()
+        };
 
        html! {
            <Sidebar ..sidebar_props />
