@@ -1129,6 +1129,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "x-sidebar-clone"
+version = "0.1.0"
+dependencies = [
+ "yew",
+ "yew-router",
+ "yew-sidebar",
+]
+
+[[package]]
 name = "yew"
 version = "0.21.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1213,13 +1222,4 @@ version = "0.1.2"
 dependencies = [
  "yew",
  "yew-accordion",
-]
-
-[[package]]
-name = "yew-sidebar-example"
-version = "0.1.0"
-dependencies = [
- "yew",
- "yew-router",
- "yew-sidebar",
 ]

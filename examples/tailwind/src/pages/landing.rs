@@ -72,6 +72,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Home",
                 link: "#home",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
             MenuItem {
@@ -93,6 +95,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "About",
                 link: "#about",
+                class: "",
+                title: "",
                 submenus: vec![
                     MenuItem {
                         icon: html! {
@@ -113,6 +117,8 @@ pub fn landing_page() -> Html {
                         },
                         text: "Team",
                         link: "#team",
+                        class: "",
+                        title: "",
                         submenus: vec![],
                     },
                     MenuItem {
@@ -134,6 +140,8 @@ pub fn landing_page() -> Html {
                         },
                         text: "History",
                         link: "#history",
+                        class: "",
+                        title: "",
                         submenus: vec![],
                     },
                 ],
@@ -157,6 +165,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Services",
                 link: "#services",
+                class: "",
+                title: "",
                 submenus: vec![
                     MenuItem {
                         icon: html! {
@@ -177,6 +187,8 @@ pub fn landing_page() -> Html {
                         },
                         text: "Web Design",
                         link: "#web-design",
+                        class: "",
+                        title: "",
                         submenus: vec![],
                     },
                     MenuItem {
@@ -198,6 +210,8 @@ pub fn landing_page() -> Html {
                         },
                         text: "Graphic Design",
                         link: "#graphic-design",
+                        class: "",
+                        title: "",
                         submenus: vec![],
                     },
                 ],
@@ -221,6 +235,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Contact",
                 link: "#contact",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
         ],
@@ -241,6 +257,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Home",
                 link: "#home",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
             MenuItem {
@@ -251,6 +269,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "About",
                 link: "#about",
+                class: "",
+                title: "",
                 submenus: vec![
                     MenuItem {
                         icon: html! {
@@ -260,6 +280,8 @@ pub fn landing_page() -> Html {
                         },
                         text: "Team",
                         link: "#team",
+                        class: "",
+                        title: "",
                         submenus: vec![],
                     },
                     MenuItem {
@@ -270,6 +292,8 @@ pub fn landing_page() -> Html {
                         },
                         text: "History",
                         link: "#history",
+                        class: "",
+                        title: "",
                         submenus: vec![],
                     },
                 ],
@@ -282,6 +306,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Services",
                 link: "#services",
+                class: "",
+                title: "",
                 submenus: vec![
                     MenuItem {
                         icon: html! {
@@ -291,6 +317,8 @@ pub fn landing_page() -> Html {
                         },
                         text: "Web Design",
                         link: "#web-design",
+                        class: "",
+                        title: "",
                         submenus: vec![],
                     },
                     MenuItem {
@@ -301,6 +329,8 @@ pub fn landing_page() -> Html {
                         },
                         text: "Graphic Design",
                         link: "#graphic-design",
+                        class: "",
+                        title: "",
                         submenus: vec![],
                     },
                 ],
@@ -313,6 +343,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Contact",
                 link: "#contact",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
         ],
@@ -349,6 +381,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Overview",
                 link: "#overview",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
             MenuItem {
@@ -359,6 +393,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Analytics",
                 link: "#analytics",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
             MenuItem {
@@ -369,6 +405,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Reports",
                 link: "#reports",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
         ],
@@ -404,6 +442,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Users",
                 link: "#users",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
             MenuItem {
@@ -414,6 +454,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Roles",
                 link: "#roles",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
             MenuItem {
@@ -424,6 +466,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Settings",
                 link: "#settings",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
         ],
@@ -460,6 +504,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Active",
                 link: "#active-projects",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
             MenuItem {
@@ -470,6 +516,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Completed",
                 link: "#completed-projects",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
             MenuItem {
@@ -480,6 +528,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Archived",
                 link: "#archived-projects",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
         ],
@@ -516,6 +566,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Dashboard",
                 link: "#dashboard",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
             MenuItem {
@@ -526,6 +578,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Users",
                 link: "#users",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
             MenuItem {
@@ -536,6 +590,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Settings",
                 link: "#settings",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
         ],
@@ -572,6 +628,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Products",
                 link: "#products",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
             MenuItem {
@@ -582,6 +640,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Categories",
                 link: "#categories",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
             MenuItem {
@@ -592,6 +652,8 @@ pub fn landing_page() -> Html {
                 },
                 text: "Orders",
                 link: "#orders",
+                class: "",
+                title: "",
                 submenus: vec![],
             },
         ],
