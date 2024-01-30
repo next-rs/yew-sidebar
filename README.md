@@ -56,6 +56,38 @@ Incorporating Yew Sidebar into your application is easy. Follow these steps:
    #[function_component(App)]
    pub fn app() -> Html {
        // Tailwind css utility classes
+        let toggle_icon_collapsed = html! {
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="white"
+                class="m-3 w-6 h-6"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 4v16m6-16v16m6-16v16"
+                />
+            </svg>
+        };
+        let toggle_icon_expanded = html! {
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="white"
+                class="m-3 w-6 h-6"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16m-7 6h7"
+                />
+            </svg>
+        };
         let sidebar_props = SidebarProps {
             sider_collapsed: true,
             title: "Dashboard",
@@ -98,8 +130,8 @@ Incorporating Yew Sidebar into your application is easy. Follow these steps:
                 },
             ],
             width_collapsed: "w-20",
-            toggle_icon_expanded: toggle_icon_expanded.clone(),
-            toggle_icon_collapsed: toggle_icon_collapsed.clone(),
+            toggle_icon_expanded: toggle_icon_expanded,
+            toggle_icon_collapsed: toggle_icon_collapsed,
             width_expanded: "w-72",
             padding_collapsed: "p-2",
             padding_expanded: "p-4",
