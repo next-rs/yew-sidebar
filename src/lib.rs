@@ -1,3 +1,113 @@
+#![doc(
+    html_logo_url = "https://github.com/next-rs/yew-sidebar/assets/62179149/94fb2191-884e-4643-a794-d8e5c459f5d6",
+    html_favicon_url = "https://github.com/next-rs/yew-sidebar/assets/62179149/e0c325e5-16b8-439d-b7c2-48b2ffe8476d"
+)]
+
+//! # Yew Sidebar - Documentation
+//!
+//! Welcome to the official Yew Sidebar documentation. This library
+//! provides a flexible and customizable sidebar component for your Yew applications.
+//!
+//! ## Usage
+//!
+//! To use the Yew Sidebar library, add the following dependency to your `Cargo.toml` file:
+//!
+//! ```sh
+//! cargo add yew-sidebar
+//! ```
+//!
+//! To integrate the library into your Yew application, you can use the `Sidebar` component.
+//! Here's a simple example of how to use it:
+//!
+//! ```rust,no_run
+//! use yew::prelude::*;
+//! use yew_sidebar::{Sidebar, SidebarProps, MenuItem};
+//!
+//! // Your Yew component structure here...
+//!
+//! #[function_component]
+//! pub fn MySidebarComponent() -> Html {
+//!     // Your component logic here...
+//!
+//!     let menu_items = vec![
+//!         MenuItem {
+//!             icon: html! { /* Your icon HTML here */ },
+//!             text: "Home",
+//!             link: "/home",
+//!             class: "your-menu-item-class",
+//!             title: "Your Menu Title",
+//!             submenus: vec![], // Nested MenuItem structures if needed
+//!         },
+//!         // Add more MenuItem structures as needed...
+//!     ];
+//!
+//!     let sidebar_props = SidebarProps {
+//!         fixed: false,
+//!         sider_collapsed: false,
+//!         title: "Your Sidebar Title",
+//!         menu_items,
+//!         // Customize other props as needed...
+//!         // ...
+//!         ..SidebarProps::default()
+//!     };
+//!
+//!     html! {
+//!         <Sidebar ..sidebar_props />
+//!     }
+//! }
+//! ```
+//!
+//! For more detailed information, check the [examples] provided in the library.
+//!
+//! [examples]: https://github.com/next-rs/yew-sidebar/examples
+//!
+//! ## Configuration
+//!
+//! Yew Sidebar allows you to configure various aspects of the sidebar through the `SidebarProps`
+//! structure. You can customize properties such as width, padding, display, styling, icons, and more.
+//! Refer to the `SidebarProps` documentation for detailed configuration options.
+//!
+//! ```rust,no_run
+//! use yew_sidebar::{SidebarProps, MenuItem};
+//! use yew::prelude::*;
+//!
+//! let menu_items = vec![
+//!     MenuItem {
+//!         icon: html! { /* Your icon HTML here */ },
+//!         text: "Home",
+//!         link: "/home",
+//!         class: "your-menu-item-class",
+//!         title: "Your Menu Title",
+//!         submenus: vec![], // Nested MenuItem structures if needed
+//!     },
+//!     // Add more MenuItem structures as needed...
+//! ];
+//!
+//! let sidebar_props = SidebarProps {
+//!     fixed: false,
+//!     sider_collapsed: false,
+//!     title: "Your Sidebar Title",
+//!     menu_items,
+//!     // Customize other props as needed...
+//!     // ...
+//!     ..SidebarProps::default()
+//! };
+//!
+//! let sidebar_component = html! {
+//!     <Sidebar ..sidebar_props />
+//! };
+//! ```
+//!
+//! ## Contribution
+//!
+//! If you encounter any issues or have suggestions for improvements, feel free to contribute
+//! to the [GitHub repository](https://github.com/next-rs/yew-sidebar). We appreciate your feedback
+//! and involvement in making Yew Sidebar better!
+//!
+//! ## Acknowledgments
+//!
+//! Special thanks to the Yew community and contributors for such an amazing framework.
+
 use yew::prelude::*;
 use yew_accordion::{Accordion, AccordionButton};
 
