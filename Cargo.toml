@@ -1,21 +1,21 @@
 [package]
 name = "yew-sidebar"
-version = "0.1.3"
+version = "0.1.4"
 description = "📁 An ultra-flexible and lightning-fast sidebar component for the Yew framework."
 license = "MIT"
-repository = "https://github.com/wiseaidev/yew-sidebar"
-homepage = "https://github.com/wiseaidev/yew-sidebar"
+repository = "https://github.com/next-rs/yew-sidebar"
+homepage = "https://github.com/next-rs/yew-sidebar"
 documentation = "https://docs.rs/yew-sidebar/"
 authors = ["Mahmoud Harmouch <oss@wiseai.dev>"]
 edition = "2021"
 exclude = ["/examples"]
 keywords = ["yew", "rust", "sidebar", "yew-sidebar"]
-categories = ["web-programming"]
+categories = ["web-programming", "no-std"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-yew = { version = "0.21.0", features = ["csr"] }
+yew = "0.21.0"
 yew-accordion = "0.1.0"
 
 [profile.release]
@@ -23,3 +23,6 @@ codegen-units = 1
 opt-level = "z"
 lto = "thin"
 strip = "symbols"
+
+[badges]
+maintenance = { status = "actively-developed" }
